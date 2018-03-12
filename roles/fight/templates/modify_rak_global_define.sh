@@ -21,6 +21,7 @@ do
     sed -i "s#SERVER_ID = 999#SERVER_ID = ${RAK_ID}#g" ${GLOBAL_DEFINE_FILE}
     sed -i "s#127.0.0.1#${CONSUL_HOST}#g" ${GLOBAL_DEFINE_FILE}
     sed -i "s#47.74.144.167#${FIGHT_SERVER_IP}#g" ${GLOBAL_DEFINE_FILE}
+    sed -i "s#sgserver#${FIGHT_NAME}#g" ${GLOBAL_DEFINE_FILE}
     if [ $i != 1 ];then
         PORT=$[ $PORT + 2 ]
         sed -i "s#10001#${PORT}#g" ${GLOBAL_DEFINE_FILE}

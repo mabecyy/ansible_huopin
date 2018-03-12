@@ -6,7 +6,7 @@
 #set -ex
 ### variables
 CUR_DIR=$(pwd)
-CONTRA_DIR={{fight_dir}}
+CONTRA_DIR=/data/huoping/fight_server
 RAKSERVER_DIR=$CONTRA_DIR
 GAME_NAME="rakserver"
 NUM=`ps aux |grep "./$GAME_NAME" |grep -v "grep" | wc -l`
@@ -18,7 +18,7 @@ fi
 if [ $NUM -ne 0 ];then
      kill -TERM `ps aux |grep "/$GAME_NAME" |grep -v "grep" |awk '{print $2}'`
      sleep 6s
-     echo "'All "$GAME_NAME"' stoping success!"
+     echo "'`hostname` All "$GAME_NAME"' stoping success!"
 else
-     echo "'All "$GAME_NAME"' is no running!"
+     echo "'`hostname` All "$GAME_NAME"' is no running!"
 fi

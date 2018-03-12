@@ -6,7 +6,7 @@
 #set -ex
 ### variables
 CUR_DIR=$(pwd)
-CONTRA_DIR={{fight_dir}}
+CONTRA_DIR=/data/huoping/fight_server
 RAKSERVER_DIR=$CONTRA_DIR
 GAME_CONFIG="global_define.lua"
 GAME_NAME="rakserver"
@@ -27,13 +27,13 @@ if [ -d $CONTRA_DIR/$i ];then
      while true
      do
          if [ $(netstat -nupl |grep ${GAME_PORT}|wc -l) -eq 1 ];then
-            echo "'$RAKSERVER_DIR/$i' starting success!"
+            echo "'`hostname` $i' starting success!"
              break 1
      #        echo '11111111111111111111111'
          fi
      done
   else
-     echo "'$RAKSERVER_DIR/$i' is running!"
+     echo "`hostname` '$i' is running!"
   fi
 else
   echo "The '$CONTRA_DIR/$i' directory is not exists!"
