@@ -1,3 +1,0 @@
-logic_server_dir: "{{huoping_dir}}/logical_server"
-consul_ip: "192.168.199.209"
-type: logical_server

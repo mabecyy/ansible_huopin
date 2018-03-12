@@ -1,3 +1,0 @@
----
-- name: start check_update in background
-  shell: "nohup /data/scripts/quickly/autocheck/check_update.sh &"

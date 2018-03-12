@@ -1,5 +1,0 @@
----
-- include_tasks: quickly.yml
-- include_tasks: make_huoping_start.yml
-- include_tasks: inotify.yml
-- include_tasks: check_update.yml

@@ -1,5 +1,0 @@
----
-- include_tasks: add_rsyncd.yml
-  tags:
-   - add_rsyncd
-- include_tasks: logic.yml

@@ -1,9 +1,0 @@
-# connection info. - provided by LilithGames
-HOSTNAME=`hostname`
-TARGETADDR="fjfb_oss@101.132.37.71::fjfb_oss/${HOSTNAME}"  #example: hogehoge@10.0.0.1::hogehoge/$HOSTNAME/
-# path of the password file. - password provided by LilithGames
-PASSWDFILE="/data/huoping/logical_server/oss_sync.passwd"  #example: ~/.rsync.passwd
-# path of the source directory
-SOURCE_DIR="/data/huoping/logical_server/EventLog"  #example: /data/logs/
-# path of the rsync log
-LOG_FILE="/temp/oss/rsync.log"    #example: /tmp/hogehoge/rsync.log

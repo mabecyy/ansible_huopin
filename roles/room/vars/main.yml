@@ -1,8 +1,0 @@
-consul_ip: "192.168.199.176"
-
-room_server_dir: "{{huoping_dir}}/room_server"
-#http_port: 8899
-#game_port: 9007
-type: room_server
-#scripts_dir: "/data/scripts"
-#huoping_dir: "/data/huoping"

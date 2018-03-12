@@ -1,2 +1,0 @@
-- name: ldconfig config     
-  shell: "/sbin/ldconfig"

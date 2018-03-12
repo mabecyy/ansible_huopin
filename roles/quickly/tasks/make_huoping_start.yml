@@ -1,5 +1,0 @@
----
-- name: make huoping_start.conf
-  copy: src=make_startconf.sh dest={{scripts_dir}} backup=yes mode=755
-- name: sh make_startconf.sh 
-  shell: "sh {{scripts_dir}}/make_startconf.sh"

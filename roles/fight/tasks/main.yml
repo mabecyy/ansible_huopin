@@ -1,6 +1,0 @@
----
-- include_tasks: fight.yml
-- include_tasks: add_rsyncd.yml
-#- include_tasks: start_fight.yml
-#  tags:
-#   - startfight

@@ -1,3 +1,0 @@
----
-- include_tasks: gate.yml
-- include_tasks: add_rsyncd.yml

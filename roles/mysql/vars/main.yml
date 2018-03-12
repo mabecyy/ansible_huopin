@@ -1,9 +1,0 @@
-mysql_version: mysql-5.5.30
-tmp_dir: /tmp
-mysql_login_host: localhost
-mysql_login_user: root
-mysql_login_password: 'changit2018'
-mem: "{{ansible_memtotal_mb}}"
-mysql_user: fjfb
-mysql_pwd: "Vn6v_(i2iVb5i=&T"
-huopin_db_host: '192.168.%.%'

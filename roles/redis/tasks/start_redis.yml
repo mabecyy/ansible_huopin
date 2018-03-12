@@ -1,7 +1,0 @@
----
-- name: start redis daemon
-  shell: /usr/local/redis/server/rd_start.sh
-  register: result
-- name: debug start redis
-  debug: var=result
-

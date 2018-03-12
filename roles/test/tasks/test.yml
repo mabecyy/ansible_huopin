@@ -1,8 +1,0 @@
----
-- name: test 
-  shell: echo {{mem}}/4 | bc
-  register: result
-- name: set var
-  set_fact: indb_size="{{result.stdout}}"
-- name: test template
-  template: src=my.cnf dest=/tmp

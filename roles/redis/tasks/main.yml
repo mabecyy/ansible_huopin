@@ -1,8 +1,0 @@
----
-- include_tasks: redis_package.yml
-- include_tasks: redis_conf.yml
-  tags:
-    - conf
-- include_tasks: start_redis.yml
-  tags:
-    - startredis

@@ -1,4 +1,0 @@
----
-- name: start all consul
-  shell: python /data/scripts/start_all_consul.py 
-  when: ansible_all_ipv4_addresses[0] == consul_join
