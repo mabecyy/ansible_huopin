@@ -1,0 +1,16 @@
+/contra_log/logical/logs/logic_server.log {
+  create 0777 root root
+  compress
+  delaycompress
+  dateext
+  missingok
+  notifempty
+  daily
+  rotate 30
+  sharedscripts
+  postrotate
+	if [ -f /data/huoping/logical_server/app.pid ];then
+		kill -HUP `cat /data/huoping/logical_server/app.pid`
+	fi
+  endscript
+}

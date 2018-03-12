@@ -1,0 +1,16 @@
+/contra_log/room/logs/gate_server.log {
+  create 0777 root root
+  compress
+  delaycompress
+  dateext
+  missingok
+  notifempty
+  daily
+  rotate 30
+  sharedscripts
+  postrotate
+	if [ -f /data/huoping/gate_server/app.pid ];then
+		kill -HUP `cat /data/huoping/gate_server/app.pid`
+	fi
+  endscript
+}

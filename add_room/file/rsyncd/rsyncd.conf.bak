@@ -1,0 +1,59 @@
+# Minimal configuration file for rsync daemon
+# See rsync(1) and rsyncd.conf(5) man pages for help
+
+# This line is required by the /etc/init.d/rsyncd script
+pid file = /etc/rsyncd/rsyncd.pid   
+lock file = /etc/rsyncd/rsyncd.lock
+port = 8732 
+address = 0.0.0.0
+uid = root
+gid = root
+use chroot = no 
+read only = no 
+write only = no 
+
+# limit access to private LANs
+hosts allow= 10.0.0.0/255.0.0.0
+#hosts allow= 222.187.221.253
+hosts deny=*
+max connections = 5
+motd file = /etc/rsyncd/rsyncd.motd
+
+# This will give you a separate log file
+log file = /data/logs/rsyncdlog/rsyncserver.log
+
+# This will log every file transferred - up to 85,000+ per user, per sync
+transfer logging = yes
+log format = %t %a %m %f %b
+syslog facility = local3
+timeout = 300
+
+[ninja]
+path = /data/ninja
+list = no
+exclude = fight_server.log fight_data_9 fight_data_25 fight_data_41 fight_data_57
+read only = no
+ignore errors = no
+auth users = RsyncGame
+write only = no
+secrets file = /etc/rsyncd/rsyncd.secrets
+
+[consul]
+path = /data/consul
+list = no
+exclude = nohup.out
+read only = no
+ignore errors = no
+auth users = RsyncGame
+write only = no
+secrets file = /etc/rsyncd/rsyncd.secrets
+
+[fight]   
+path = /data/fight_server
+list = no
+exclude = nohup.out fight_server.log
+read only = no
+ignore errors = no
+auth users = RsyncGame
+write only = no
+secrets file = /etc/rsyncd/rsyncd.secrets
