@@ -1,0 +1,14 @@
+---
+- name: check rsyncd exist
+  shell: "ls /etc |grep rsyncd | wc -l"
+  register: check
+- name: copy rsyncd dir to /etc
+  copy: src=rsyncd dest=/etc  mode=755
+  when: check.stdout == '0'
+#  shell: "echo '{{ansible_date_time.date}} {{ansible_date_time.time}}' > /tmp/common.txt"
+
+- name: modify secrets mode 
+  file: dest=/etc/rsyncd/{{item}} mode=600 backup=yes
+  with_items:
+    - rsyncdgame.secrets
+    - rsyncd.secrets

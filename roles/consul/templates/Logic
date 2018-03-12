@@ -1,0 +1,27 @@
+{
+    "Host": "0.0.0.0",
+    "Port": {{logic_port}},
+    "Http": {
+        "Port": {{logic_http_port}}
+    },
+    "Private": {
+        "Host": "{{logic_host}}",
+        "Port": {{logic_private_port}}
+    },
+    "Log": {
+        "Name": "{{logic_log_name}}",
+        "Dir": "{{logic_log_dir}}",
+        "Level": "{{logic_level}}"
+    },
+    "Lilith": {
+        "Name": "role_log.log",
+        "Dir": "lilithLog",
+        "Level": ""
+    },
+    "Event": {
+        "Name": "role_log.log",
+        "Dir": "EventLog",
+        "Level": ""
+            
+    }
+}

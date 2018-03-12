@@ -1,0 +1,26 @@
+- name: create room dir
+  file: path={{huoping_dir}} state=directory backup=yes recurse=yes
+- name: create scripts dir
+  file: path={{scripts_dir}} state=directory backup=yes recurse=yes
+- name: check room daemon
+  shell: "ps aux | grep '{{room_server_dir}}'  |grep -v grep | wc -l"
+  register: daemon
+- name: copy room data
+  copy: src=room_server dest={{huoping_dir}} backup=yes mode=755
+  when: daemon.stdout == '0'
+- name: copy room config  and sh file
+  template: src={{item}} dest={{room_server_dir}} backup=yes mode=755
+  with_items:
+    - config.json
+    - start.sh
+    - stop.sh
+  when: daemon.stdout == '0'
+- name: copy start_room_server.sh
+  template: src=start_room_server.sh  dest={{scripts_dir}}/start_room_server{{room_node_id}}.sh backup=yes mode=755
+- name: copy stop_room_server{{room_node_id}}.sh
+  template: src=stop_room_server.sh  dest={{scripts_dir}}/stop_room_server{{room_node_id}}.sh backup=yes mode=755
+- name: copy check_room.sh
+  template: src=check_room.sh  dest={{scripts_dir}} backup=yes mode=755
+#- name: start room daemon
+#  shell: "{{scripts_dir}}/start_room_server{{room_node_id}}.sh"
+#  when: daemon.stdout == '0'

@@ -1,0 +1,34 @@
+- name: check consul dir  is creat 
+  shell: "ls /data | grep consul |wc -l"
+  register: result
+- name: create config_consul dir
+  file: path={{dst_dir}} state=directory backup=yes
+  when: result.stdout == '0'
+- name: rsync consul py
+  template: src={{src_dir}}/{{item}} dest={{dst_dir}} backup=yes
+  with_items:
+    - start.py
+    - stop.py
+- name: copy consul daemon
+  copy: src=consul dest={{dst_dir}} backup=yes mode=755
+
+- name: create config_consul dir
+  file: path={{dst_config_dir}} state=directory backup=yes
+  #notify:
+  #  - cpoy script
+  when: ansible_all_ipv4_addresses[0] == consul_join
+- name: copy config
+  template: src={{item}} dest={{dst_config_dir}} backup=yes
+  with_items:
+    - Common
+    - Gate
+    - Backend
+    - Logic
+    - Room
+  when: ansible_all_ipv4_addresses[0] == consul_join
+- name: copy script
+  template: src={{item}} dest={{scripts_dir}} backup=yes
+  with_items:
+    - start_all_consul.py
+    - stop_all_consul.py
+  when: ansible_all_ipv4_addresses[0] == consul_join

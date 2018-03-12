@@ -1,0 +1,13 @@
+---
+  - name: Test '{{tmp_dir}}/{{ansible_hostname}}.sql' sql exists
+    stat: path={{tmp_dir}}/aa.sql get_md5=yes
+    register: STAT
+#  - debug: msg={{STAT.stat.exists}}
+  - debug: msg={{STAT.stat.md5}}
+
+  - name: Dumps mysql database to mysql.sql
+    mysql_db: state=dump name=mysql login_host={{mysql_host}} login_user={{mysql_user}} login_password={{mysql_password}} 
+              target={{tmp_dir}}/{{ansible_hostname}}.sql
+#    when: STAT.stat.exists == true
+    register: DUMP
+  - debug: msg={{DUMP}}

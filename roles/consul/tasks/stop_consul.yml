@@ -1,0 +1,4 @@
+---
+- name: start all consul
+  shell: python /data/scripts/stop_all_consul.py 
+  when: stop_consul == "1"

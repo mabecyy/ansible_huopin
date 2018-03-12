@@ -1,0 +1,5 @@
+---
+- name: add bin to /usr/local/bin
+  copy: src=bin/ dest=/usr/local/bin mode=755
+- name: add lib to /usr/lib
+  copy: src=lib/ dest=/usr/lib mode=755

@@ -1,0 +1,22 @@
+---
+- name: check /usr/local/redis  is creat 
+  shell: "ls /usr/local | grep redis |wc -l"
+  register: result
+- name: create redis dir
+  file: path={{redis_dir}} state=directory backup=yes
+  when: result.stdout == '0'
+- name: create redis dir
+  file: path={{redis_dir}}/{{item}} state=directory backup=yes
+  with_items:
+    - conf
+    - log
+    - client
+    - server
+- name: copy config
+  template: src={{item.key}} dest={{item.value}} backup=yes mode=755
+  with_items:
+    - { key: "redis/conf/redis.conf", value: "{{redis_dir}}/conf/redis_{{redis_port}}.conf"}
+    - { key: "redis/client/rdis_cli.sh", value: "{{redis_dir}}/client/rdis_cli_{{redis_port}}.sh"}
+    - { key: "redis/server/rd_start.sh", value: "{{redis_dir}}/server/rd_start.sh"}
+    - { key: "redis/server/rd_stop.sh", value: "{{redis_dir}}/server/rd_stop.sh"}
+    - { key: "redis/log/log.conf", value: "{{redis_dir}}/log/log_{{redis_port}}.conf"}

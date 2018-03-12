@@ -1,0 +1,2 @@
+- name: add mysql db user
+  mysql_user: name='{{mysql_user}}'   password='{{mysql_pwd}}' login_host={{mysql_login_host}} login_user={{mysql_login_user}} login_password={{mysql_login_password}} state=present  check_implicit_admin=no login_unix_socket=/tmp/mysql.sock priv='*.*:ALL' host={{huopin_db_host}}

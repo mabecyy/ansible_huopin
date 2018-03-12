@@ -1,0 +1,9 @@
+- name: check mysql is install 
+  shell: "ls /data |grep mysql |wc -l"
+  register: result
+- name: show result info
+  debug: var=result
+- name: install mysql
+  shell: /bin/sh /root/mysql_install.sh
+  when: result.stdout == '0'
+  ignore_errors: True

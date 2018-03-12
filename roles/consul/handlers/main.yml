@@ -1,0 +1,8 @@
+- name: cpoy script
+  template: src={{item}} dest={{dst_config_dir}} backup=yes
+  with_items:
+    - CommonServer_1.config
+    - GateServer_1.config
+    - GmApiServer.config
+    - LogicServer_1.config
+    - RoomServer_1.config

@@ -1,0 +1,17 @@
+- name: check rsyncd variable
+  shell: cat /etc/rsyncd/rsyncd.conf
+  register: result
+- name: add rsync conf
+  shell: "/bin/echo '{{ item }}' >> /etc/rsyncd/rsyncd.conf"
+  vars:
+   huo_type: "{{type}}{{logic_node_id}}"
+  when: result.stdout.find(huo_type) == -1
+  with_items:
+    - "[{{type}}{{logic_node_id}}]"
+    - path = {{logic_server_dir}}
+    - read only = no
+    - list = no
+    - auth users = RsyncGame
+    - secrets file = /etc/rsyncd/rsyncd.secrets
+- name: start_rsync
+  shell: "/etc/rsyncd/rsync.sh restart"

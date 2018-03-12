@@ -1,0 +1,3 @@
+---
+- name: start fight daemon
+  shell: "cd {{fight_dir}} && sh startall.sh"

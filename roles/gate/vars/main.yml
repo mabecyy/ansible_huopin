@@ -1,0 +1,10 @@
+consul_ip: "192.168.199.209"
+gate_pubilic_ip: "192.168.199.176"
+
+gate_server_dir: "{{huoping_dir}}/gate_server"
+type: gate_server
+#gate_port: 2017
+
+#scripts_dir: "/data/scripts"
+#huoping_dir: "/data/huoping"
+

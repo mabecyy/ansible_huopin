@@ -1,0 +1,24 @@
+- name: Create huopin database 
+  mysql_db: name={{item}} state=present login_host={{mysql_login_host}} login_user={{mysql_login_user}} login_password={{mysql_login_password}}
+            login_unix_socket=/tmp/mysql.sock encoding=utf8
+  with_items: 
+    - contra_admin
+    - contra_server
+    - contra_announcement
+    - contra_auth
+    - contra_base
+    - contra_battlelog
+    - contra_stats
+
+- name: import huopin data to database
+  mysql_db: name={{item}} state=import login_host={{mysql_login_host}} login_user={{mysql_login_user}} login_password={{mysql_login_password}}
+            login_unix_socket=/tmp/mysql.sock target=/tmp/{{item}}.sql
+  with_items:
+    - contra_admin
+    - contra_auth
+    - contra_base
+    - contra_battlelog
+    - contra_stats
+- name: import huopin data to database
+  mysql_db: name=contra_auth state=import login_host={{mysql_login_host}} login_user={{mysql_login_user}} login_password={{mysql_login_password}}
+            login_unix_socket=/tmp/mysql.sock target=/tmp/insert_auth_game_server.sql

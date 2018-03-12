@@ -1,0 +1,12 @@
+{
+    "ServerId": {{game_id}},
+    "NodeId": {{logic_node_id}},
+    "SvrType": 1,
+    "Consul":{
+        "Host": "{{consul_ip}}",
+        "Port": 8500,
+        "DC": "dc1",
+        "Token": ""
+    },
+    "PublicIP": "{{logic_pubilic_ip}}"
+}

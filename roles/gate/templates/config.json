@@ -1,0 +1,12 @@
+{
+    "ServerId": {{game_id}},
+    "NodeId": {{gate_node_id}},
+    "SvrType": 3,
+    "Consul":{
+        "Host": "{{consul_ip}}",
+        "Port": 8500,
+        "DC": "dc1",
+        "Token": ""
+    },
+   "PublicIP": "{{gate_pubilic_ip}}"
+}
