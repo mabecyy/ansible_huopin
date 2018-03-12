@@ -1,0 +1,5 @@
+- hosts: login
+  remote_user: root
+  gather_facts: True
+  roles:
+    - login

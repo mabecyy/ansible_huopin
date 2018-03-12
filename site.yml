@@ -1,0 +1,59 @@
+- hosts: consul_client
+  remote_user: root
+  gather_facts: True
+  roles:
+    - { role: consul, src_dir: consul_client/, dst_dir: /data/consul/}
+- hosts: consul_server
+  remote_user: root
+  gather_facts: True
+  roles:
+    - { role: consul, src_dir: consul_server/, dst_dir: /data/consul/,stop_consul: 1}
+  post_tasks:
+    - name: start consulall
+      shell: cd /data/scripts && python /data/scripts/start_all_consul.py > /tmp/aa.txt 
+- hosts: mysql
+  remote_user: root
+  gather_facts: True
+  roles:
+    - mysql
+- hosts: redis
+  remote_user: root
+  gather_facts: True
+  roles:
+    - redis
+- hosts: cassandra
+  remote_user: root
+  gather_facts: True
+  roles:
+    - cassandra
+- hosts: common
+  remote_user: root
+  gather_facts: False
+  roles:
+    - common
+- hosts: login
+  remote_user: root
+  gather_facts: False
+  roles:
+    - login
+- hosts: gate
+  remote_user: root
+  gather_facts: False
+  roles:
+    - gate
+- hosts: logic
+  remote_user: root
+  gather_facts: False
+  roles:
+    - logic
+- hosts: room
+  remote_user: root
+  gather_facts: False
+  roles:
+    - room
+- hosts: fight
+  remote_user: root
+  gather_facts: False
+  roles:
+    - fight
+

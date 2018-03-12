@@ -1,0 +1,5 @@
+- hosts: cassandra
+  remote_user: root
+  gather_facts: True
+  roles:
+    - cassandra

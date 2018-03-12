@@ -1,0 +1,13 @@
+- hosts: consul_client
+  remote_user: root
+  gather_facts: True
+  roles:
+    - { role: consul, src_dir: consul_client/, dst_dir: /data/consul/}
+- hosts: consul_server
+  remote_user: root
+  gather_facts: True
+  roles:
+    - { role: consul, src_dir: consul_server/, dst_dir: /data/consul/,stop_consul: 1}
+  post_tasks:
+    - name: start consulall
+      shell: cd /data/scripts && python /data/scripts/start_all_consul.py > /tmp/aa.txt 

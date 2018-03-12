@@ -1,0 +1,5 @@
+- hosts: quickly
+  remote_user: root
+  gather_facts: False
+  roles:
+    - quickly

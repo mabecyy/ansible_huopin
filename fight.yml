@@ -1,0 +1,5 @@
+- hosts: fight
+  remote_user: root
+  gather_facts: True
+  roles:
+    - fight

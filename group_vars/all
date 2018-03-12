@@ -1,0 +1,29 @@
+mysql_host: "192.168.199.209"
+mysql_user: fjfb
+mysql_port: 3306
+mysql_pwd: "Vn6v_(i2iVb5i=&T"
+server_name: '209测试服'
+game_id: 1
+
+
+redis_host: 192.168.199.209
+redis_port: 6379
+
+login_port: 80
+
+gate_port: 2017
+gate_http_port: 9899
+gate_private_port: 9388
+
+room_port: 9007
+room_http_port: 8899
+room_private_port: 9729
+
+logic_port: 9005
+logic_http_port: 13024
+logic_private_port: 9788
+
+scripts_dir: "/data/scripts"
+huoping_dir: "/data/huoping"
+
+
