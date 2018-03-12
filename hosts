@@ -27,4 +27,4 @@
 192.168.199.209 fight_node_id=1 server_id=0  num=6 fight_public_ip=192.168.199.209 consul_host=127.0.0.1 
 192.168.199.176 fight_node_id=2 server_id=6  num=6 fight_public_ip=192.168.199.176 consul_host=127.0.0.1 
 [test]
-192.168.199.209
+192.168.199.176
